@@ -1,0 +1,58 @@
+{
+  "name": "com.fenikkel.localized-captions",
+  "displayName": "Localized Captions",
+  "description": "Localize captions files and play them easily.",
+  "version": "1.0.0",
+  "keywords": [
+    "Parser",
+    "Subtitles",
+    "Captions",
+    "srt",
+    "files",
+    "localization",
+    "localize",
+    "multi-language",
+    "languages",
+    "highlighted",
+    "fade",
+    "addressables"
+  ],
+  "homepage": "https://gist.github.com/Fenikkel/ac17483b76d4dab60963a6b3af638b39#-hi-there-im-pau-fenollosa",
+  "bugs": {
+    "url": "https://github.com/Fenikkel/LocalizedCaptions/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:Fenikkel/LocalizedCaptions.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Fenikkel",
+    "email": "paufenollosa@gmail.com",
+    "url": "https://gist.github.com/Fenikkel/ac17483b76d4dab60963a6b3af638b39#-hi-there-im-pau-fenollosa"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "//": "In dependencies, you say the minimum version that the package can work with, if it's avaliable a higher version, it will use that one",
+  "type": "library",
+  "documentationUrl": "https://github.com/Fenikkel/LocalizedCaptions/tree/main/Documentation%7E",
+  "changelogUrl": "https://github.com/Fenikkel/LocalizedCaptions/blob/main/CHANGELOG.md",
+  "licensesUrl": "https://github.com/Fenikkel/LocalizedCaptions/blob/main/LICENSE.md",
+
+
+  "samples": [
+    {
+        "displayName": "Demo",
+        "description": "Foolproof example to start to know asset.",
+        "path": "Samples~/Demo"
+    }
+  ],
+
+  "dependencies": {
+    "com.unity.textmeshpro": "2.1.6",
+    "com.unity.localization": "1.4.5"
+    
+  },
+  "//": "com.fenikkel.captions-file-parser"
+}
