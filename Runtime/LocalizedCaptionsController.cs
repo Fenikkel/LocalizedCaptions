@@ -7,7 +7,7 @@ using UnityEngine.Events;
 using UnityEngine.Localization.Settings;
 using UnityEngine.Localization.Tables;
 using UnityEngine.ResourceManagement.AsyncOperations;
-using UnityEngine.AddressableAssets;
+
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -42,6 +42,8 @@ public class LocalizedCaptionsController : MonoBehaviour
     Coroutine _PreloadCoroutine;
     Coroutine _FadeCoroutine;
     UnityAction<TextAsset> _OnLanguageChange;
+
+    float _CurrentTime; // It's an estimation
 
     public bool FadeTransition { get { return _FadeTransition; } set { _FadeTransition = value; } }
 
@@ -185,7 +187,7 @@ public class LocalizedCaptionsController : MonoBehaviour
         _LocalizeTextAssetEvent.OnUpdateAsset.AddListener(_OnLanguageChange);
         ChangeTextAsset(_LocalizeTextAssetEvent.AssetReference.LoadAsset()); // localizedTextAsset.LoadAsset()
 
-        float currentTime = 0f;
+        _CurrentTime = 0f;
         float entryTime;
         float exitTime;
         float onScreenTime;
@@ -203,14 +205,14 @@ public class LocalizedCaptionsController : MonoBehaviour
             exitTime = (float)currentCaption.ExitTime.TotalSeconds;
             onScreenTime = exitTime - entryTime;
 
-            if (exitTime < currentTime)
+            if (exitTime < _CurrentTime)
             {
                 continue; // Go for next
             }
 
-            while (currentTime < entryTime)
+            while (_CurrentTime < entryTime)
             {
-                currentTime += Time.deltaTime;
+                _CurrentTime += Time.deltaTime;
                 yield return null;
             };
 
@@ -219,7 +221,7 @@ public class LocalizedCaptionsController : MonoBehaviour
             ChangeCaptionsText(captionText);
             OnTextChanged.Invoke(captionText);
 
-            onScreenTime -= (currentTime - entryTime); // Take in account the residual time lost
+            onScreenTime -= (_CurrentTime - entryTime); // Take in account the residual time lost
 
             fadeDeltaTime = Time.time;
 
@@ -249,7 +251,7 @@ public class LocalizedCaptionsController : MonoBehaviour
 
             fadeDeltaTime = Time.time - fadeDeltaTime;
 
-            currentTime += fadeDeltaTime;
+            _CurrentTime += fadeDeltaTime;
             OnTextChanged.Invoke(string.Empty);
         }
 
@@ -295,6 +297,7 @@ public class LocalizedCaptionsController : MonoBehaviour
 
         _CaptionText.text = string.Empty;
         _CaptionText.alpha = 0f;
+        _CurrentTime = 0f;
         _CaptionsQueue.Clear();
     }
     #endregion
@@ -317,6 +320,36 @@ public class LocalizedCaptionsController : MonoBehaviour
             _CaptionsQueue = new Queue<Caption>();
             Debug.LogWarning($"Failed to get the captions of <b>{textAsset.name}</b>.\n<i>Continuing without captions.</i>");
             return;
+        }
+
+        Caption currentCaption;
+        float exitTime;
+        float entryTime;
+
+        while (0 < _CaptionsQueue.Count)
+        {
+            currentCaption = _CaptionsQueue.Peek();
+
+            entryTime = (float)currentCaption.EntryTime.TotalSeconds;
+            exitTime = (float)currentCaption.ExitTime.TotalSeconds;
+
+            if (exitTime < _CurrentTime)
+            {
+                _CaptionsQueue.Dequeue();
+                continue;
+            }
+            else if (entryTime < _CurrentTime)
+            {
+                string captionText = string.IsNullOrEmpty(currentCaption.SecondRow) ? currentCaption.FirstRow : $"{currentCaption.FirstRow}\n{currentCaption.SecondRow}";
+                ChangeCaptionsText(captionText);
+                OnTextChanged.Invoke(captionText);
+                break;
+            }
+            else
+            {
+                // There is no text in the screen
+                break;
+            }
         }
     }
 
