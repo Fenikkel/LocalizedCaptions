@@ -1,6 +1,6 @@
 # Localized Captions
 
-Easy and simple way to convert subtitle files into C# data structures.
+Multi-lingual captions system that use .srt or similar as input.
 
 <p align="center">
   <img src="https://github.com/Fenikkel/LocalizedCaptions/assets/41298931/eb1c716f-aae5-458c-ad9a-bfde912ddafc" alt="Art image"/>
