@@ -127,9 +127,8 @@ public class LocalizedCaptionsController : MonoBehaviour
                 Debug.LogWarning($"Error to load the captions in the table \"<b>{tableCollectionName}</b>\" in the entry \"<b>{entryName}</b>\" in the language \"<b>{LocalizationSettings.SelectedLocale}</b>\".");
             }
         }
-        catch (Exception ex)
+        catch
         {
-            // Debug.LogError($"Exception message: {ex.Message}");
             Debug.LogWarning($"Seems that entry \"<b>{entryName}</b>\" in your table \"<b>{tableCollectionName}</b>\" have some missing/broken references or the asset it's not Addressable.\n<b><i>You may need to make the asset Addressable or redo the table.</i></b>");
 
             _LocalizeTextAssetEvent.AssetReference = null;
