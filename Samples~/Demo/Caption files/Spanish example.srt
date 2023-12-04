@@ -1,0 +1,38 @@
+1
+00:00:00,000 --> 00:00:03,000
+Aproximadamente 1 segundo por
+cada 12-15 caracteres,
+
+2
+00:00:03,000 --> 00:00:06,000
+es una buena regla para fijar
+el tiempo de los subtítulos.
+
+3
+00:00:06,000 --> 00:00:10,500
+Los subtítulos deben sincronizarse
+con el audio correspondiente.
+
+4
+00:00:10,500 --> 00:00:11,500
+Las escenas de ritmo rápido
+pueden requerir
+
+5
+00:00:11,500 --> 00:00:12,250
+transiciones de subtítulos
+más rápidas,
+
+6
+00:00:12,250 --> 00:00:16,750
+mientras que las escenas lentas pueden
+acomodar duraciones más largas.
+
+7
+00:00:16,750 --> 00:00:22,750
+[DEBUG] Subtítulo de una línea.
+
+8
+00:00:22,750 --> 00:00:28,750
+[DEBUG] Subtítulo de dos línea.
+[DEBUG] Subtítulo de dos línea.

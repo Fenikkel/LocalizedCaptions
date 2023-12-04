@@ -1,0 +1,38 @@
+1
+00:00:00,000 --> 00:00:03,000
+Environ 1 seconde pour chaque
+12-15 caractères,
+
+2
+00:00:03,000 --> 00:00:06,000
+est une bonne règle pour définir
+le temps des légendes.
+
+3
+00:00:06,000 --> 00:00:10,500
+Les sous-titres doivent généralement
+être synchronisés avec le discours.
+
+4
+00:00:10,500 --> 00:00:11,500
+Les scènes au rythme rapide
+peuvent nécessiter
+
+5
+00:00:11,500 --> 00:00:12,250
+des transitions de légende
+plus rapides,
+
+6
+00:00:12,250 --> 00:00:16,750
+tandis que les scènes plus lentes peuvent
+peuvent s'adapter à des durées plus longues.
+
+7
+00:00:16,750 --> 00:00:22,750
+[DEBUG] Sous-titre d'une ligne.
+
+8
+00:00:22,750 --> 00:00:28,750
+[DEBUG] Sous-titre de deux lignes.
+[DEBUG] Sous-titre de deux lignes.

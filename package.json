@@ -40,7 +40,6 @@
   "changelogUrl": "https://github.com/Fenikkel/LocalizedCaptions/blob/main/CHANGELOG.md",
   "licensesUrl": "https://github.com/Fenikkel/LocalizedCaptions/blob/main/LICENSE.md",
 
-
   "samples": [
     {
         "displayName": "Demo",
@@ -48,11 +47,9 @@
         "path": "Samples~/Demo"
     }
   ],
-
   "dependencies": {
     "com.unity.textmeshpro": "2.1.6",
     "com.unity.localization": "1.4.5"
-    
-  },
-  "//": "com.fenikkel.captions-file-parser"
+  }
+  
 }

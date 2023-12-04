@@ -1,0 +1,37 @@
+1
+00:00:00,000 --> 00:00:03,000
+About 1 second for every
+12-15 characters,
+
+2
+00:00:03,000 --> 00:00:06,000
+is a good rule to set
+the captions time.
+
+3
+00:00:06,000 --> 00:00:10,500
+Captions should generally synchronize
+with the corresponding speech.
+
+4
+00:00:10,500 --> 00:00:11,500
+Fast-paced scenes
+might require
+
+5
+00:00:11,500 --> 00:00:12,250
+quicker caption transitions,
+
+6
+00:00:12,250 --> 00:00:16,750
+while slower scenes can
+accommodate longer durations.
+
+7
+00:00:16,750 --> 00:00:22,750
+[DEBUG] One line subtitle.
+
+8
+00:00:22,750 --> 00:00:28,750
+[DEBUG] Two line subtitle.
+[DEBUG] Two line subtitle.
