@@ -1,32 +1,39 @@
-# Captions File Parser
+# Localized Captions
 
 Easy and simple way to convert subtitle files into C# data structures.
 
 <p align="center">
-  <img src="https://github.com/Fenikkel/CaptionsFileParser/assets/41298931/148d7f8a-6555-4a75-984b-a635f5a3f186" alt="Art image"/>
+  <img src="https://github.com/Fenikkel/LocalizedCaptions/assets/41298931/eb1c716f-aae5-458c-ad9a-bfde912ddafc" alt="Art image"/>
 </p>
+
 
 
 &nbsp;
 ## Usage
-Create a CaptionDataParser and use Parse() with the desired caption file to obtain a Queue<Caption> with all the data:
+1. Make sure you have a LocalizationSettings.
+2. Create an AssetTableCollection for your subtitles.
+3. Create an entry to drag your subtitle files on it.
+4. Drag and drop the LocalizedCaptions.prefab to any scene. Go to the LocalizedCaptionsController attached to the captions text and set your desired configuration.
+5. To play the captions, you can make an static call from any script: 
 
 ```
-    Queue<Caption> captionsQueue = new Queue<Caption>();
-
-    CaptionDataParser captionsParser = new CaptionDataParser();
-
-    captionsQueue = captionsParser.Parse(textAsset);
+    LocalizedTextAsset localizedTextAsset;
+    LocalizedCaptionsController.Play(localizedTextAsset);
+```
+6. Preload your LocalizedTextAssed for skip loading deleays:
+```
+    LocalizedTextAsset localizedTextAsset;
+    LocalizedCaptionsController.Preload(localizedTextAsset);
 ```
 
 &nbsp;
 ## Installation
 Add the custom package to your project via:
-- [Unity Asset Store](https://u3d.as/3bXj)
+- [Unity Asset Store](https://u3d.as/3c32)
 
 or
 
-- Package Manager -> + -> Add package from git URL -> https://github.com/Fenikkel/CaptionsFileParser.git
+- Package Manager -> + -> Add package from git URL -> https://github.com/Fenikkel/LocalizedCaptions.git
 
 
 <p align="center">
@@ -38,16 +45,21 @@ or
 ## Technical details
 
 Supported captions file:
-
-    SubRip Subtitle (.srt)
-
+- SubRip Subtitle (.srt)
 
 _More file formats coming soon_
 
 &nbsp;
 ## Compatibility
-- Any Unity version
+- Unity Version: 2019.4 (LTS) or higher
 - Any pipeline (Build-in, URP, HDRP, etc)
+
+&nbsp;
+## Dependencies
+- [Localization](https://docs.unity3d.com/Packages/com.unity.localization@1.4/manual/index.html)
+- [Addressables](https://docs.unity3d.com/Packages/com.unity.addressables@2.0/manual/index.html)
+- [TextMeshPro](https://docs.unity3d.com/Packages/com.unity.textmeshpro@3.0/manual/index.html)
+- [Captions File Parser](https://u3d.as/3bXj)
 
 &nbsp;
 ## Support
