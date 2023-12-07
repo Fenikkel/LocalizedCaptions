@@ -3,9 +3,8 @@
 Multi-lingual captions system that use .srt or similar as input.
 
 <p align="center">
-  <img src="https://github.com/Fenikkel/LocalizedCaptions/assets/41298931/eb1c716f-aae5-458c-ad9a-bfde912ddafc" alt="Art image"/>
+  <img src="https://github.com/Fenikkel/LocalizedCaptions/assets/41298931/cd7c2379-8673-4e3c-bd10-6e79c8e61cc8" alt="Art image"/>
 </p>
-
 
 
 &nbsp;
