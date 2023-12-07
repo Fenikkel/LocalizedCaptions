@@ -135,14 +135,16 @@ public class LocalizedCaptionsController : MonoBehaviour
             yield break;
 
         }
-
-        // Debug.Log("Preloaded");
-
+        finally 
+        {
 #if UNITY_EDITOR
-        EditorUtility.SetDirty(_LocalizeTextAssetEvent); // Refresh the inspector
+            EditorUtility.SetDirty(_LocalizeTextAssetEvent); // Refresh the inspector
 #endif
 
-        _PreloadCoroutine = null;
+            _PreloadCoroutine = null;
+        }
+
+        // Debug.Log("Preloaded");
     }
 
     public static void Play(LocalizedTextAsset localizedTextAsset)
@@ -166,7 +168,7 @@ public class LocalizedCaptionsController : MonoBehaviour
 
     private IEnumerator PlayCaptionsCoroutine(LocalizedTextAsset localizedTextAsset)
     {
-        if (localizedTextAsset.IsEmpty)
+        if (localizedTextAsset == null || localizedTextAsset.IsEmpty)
         {
             Debug.LogWarning($"Empty <b>LocalizedTextAsset</b> variable.");
             yield break;
@@ -254,7 +256,7 @@ public class LocalizedCaptionsController : MonoBehaviour
             OnTextChanged.Invoke(string.Empty);
         }
 
-        OnStartCaptions.Invoke();
+        OnEndCaptions.Invoke();
 
         ResetVariables();
         _CaptionsCoroutine = null;
