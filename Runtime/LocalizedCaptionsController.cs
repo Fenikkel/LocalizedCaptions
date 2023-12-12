@@ -80,17 +80,11 @@ public class LocalizedCaptionsController : MonoBehaviour
 
     public Coroutine PreloadCaptions(LocalizedTextAsset localizedTextAsset)
     {
-        if (localizedTextAsset == null || localizedTextAsset.IsEmpty)
-        {
-            Debug.LogWarning($"Empty <b>LocalizedTextAsset</b> variable.");
-            return null;
-        }
-
         if (_PreloadCoroutine != null)
         {
             StopCoroutine(_PreloadCoroutine);
             _PreloadCoroutine = null;
-            Debug.LogWarning("Another preload was on course");
+            Debug.LogWarning("Localized Captions: Another preload was on course.");
         }
 
         _PreloadCoroutine = StartCoroutine(PreloadCaptionsCoroutine(localizedTextAsset));
@@ -100,6 +94,13 @@ public class LocalizedCaptionsController : MonoBehaviour
 
     private IEnumerator PreloadCaptionsCoroutine(LocalizedTextAsset localizedTextAsset)
     {
+        if (localizedTextAsset == null || localizedTextAsset.IsEmpty)
+        {
+            Debug.LogWarning($"Empty <b>LocalizedTextAsset</b> variable.");
+            _PreloadCoroutine = null;
+            yield break;
+        }
+
         _LocalizeTextAssetEvent.AssetReference = localizedTextAsset;
 
         // CurrentLoadingOperationHandle.Status --> None
@@ -277,7 +278,7 @@ public class LocalizedCaptionsController : MonoBehaviour
     {
         if (_CaptionsCoroutine != null)
         {
-            Debug.LogWarning("Another captions were playing.");
+            Debug.LogWarning("Stopping the localized captions.");
 
             StopCoroutine(_CaptionsCoroutine);
             _CaptionsCoroutine = null;
