@@ -49,6 +49,11 @@ namespace Fenikkel.LocalizedCaptions.Example
             LocalizedCaptionsController.Play(_LocalizedTextAsset); // Or -> LocalizedCaptionsController.Instance.PlayCaptions(_LocalizedTextAsset);
         }
 
+        public void StopLocalizedCaptions()
+        {
+            LocalizedCaptionsController.Stop(); // Or -> LocalizedCaptionsController.Instance.Stop();
+        }
+
         private void InitAndSetupLocalization() 
         {
             // Localization settings

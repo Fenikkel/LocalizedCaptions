@@ -282,6 +282,8 @@ public class LocalizedCaptionsController : MonoBehaviour
 
             StopCoroutine(_CaptionsCoroutine);
             _CaptionsCoroutine = null;
+
+            OnTextChanged.Invoke(string.Empty);
         }
 
         ResetVariables();
