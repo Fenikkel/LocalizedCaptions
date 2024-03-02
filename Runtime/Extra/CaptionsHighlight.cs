@@ -5,44 +5,47 @@ using UnityEngine;
  * Remember to copy the Rect Transform and TextMeshPro position values
  */
 
-[RequireComponent(typeof(TextMeshProUGUI))]
-public class CaptionsHighlight : MonoBehaviour
+namespace CaptionsFileParser
 {
-    [SerializeField] LocalizedCaptionsController _LocalizedCaptionsController;
-    [Space]
-    [SerializeField] Color _HighlightColor = Color.black; // Alpha to 0 disable it
-
-    TextMeshProUGUI _HighlightText;
-
-    void Start()
+    [RequireComponent(typeof(TextMeshProUGUI))]
+    public class CaptionsHighlight : MonoBehaviour
     {
-        if (_LocalizedCaptionsController == null) 
+        [SerializeField] LocalizedCaptionsController _LocalizedCaptionsController;
+        [Space]
+        [SerializeField] Color _HighlightColor = Color.black; // Alpha to 0 disable it
+
+        TextMeshProUGUI _HighlightText;
+
+        void Start()
         {
-            Debug.LogError($"Please assign {typeof(LocalizedCaptionsController)} to work.\n<i>Disabling the behaviour</i>");
-            this.enabled = false;
-            return;
+            if (_LocalizedCaptionsController == null)
+            {
+                Debug.LogError($"Please assign {typeof(LocalizedCaptionsController)} to work.\n<i>Disabling the behaviour</i>");
+                this.enabled = false;
+                return;
+            }
+
+            _HighlightText = GetComponent<TextMeshProUGUI>();
+
+            _LocalizedCaptionsController.OnTextChanged.AddListener(HighlightText);
         }
 
-        _HighlightText = GetComponent<TextMeshProUGUI>();
 
-        _LocalizedCaptionsController.OnTextChanged.AddListener(HighlightText);
-    }
+        private void HighlightText(string text)
+        {
 
+            _HighlightText.text = string.IsNullOrEmpty(text) ? null : $"<mark=#{ColorUtility.ToHtmlStringRGBA(_HighlightColor)}><alpha=#00>a{text}a<alpha=#FF></mark></font>";
 
-    private void HighlightText(string text) 
-    {
+            // Set some invisible letters at the start and end of the string to extend the highlight
+            //captionString = $"<alpha=#00>a<alpha=#FF>{captionString}<alpha=#00>a<alpha=#FF>";
 
-        _HighlightText.text = string.IsNullOrEmpty(text) ? null : $"<mark=#{ColorUtility.ToHtmlStringRGBA(_HighlightColor)}><alpha=#00>a{text}a<alpha=#FF></mark></font>";
+            /*
+             * Put your asset and material preset in: Resources/Fonts & Materials/
+             * Or in the custom path configured in: ProjectSettings -> TextMesh Pro -> Settings (http://digitalnativestudios.com/textmeshpro/docs/settings/#font)
+             */
 
-        // Set some invisible letters at the start and end of the string to extend the highlight
-        //captionString = $"<alpha=#00>a<alpha=#FF>{captionString}<alpha=#00>a<alpha=#FF>";
-
-        /*
-         * Put your asset and material preset in: Resources/Fonts & Materials/
-         * Or in the custom path configured in: ProjectSettings -> TextMesh Pro -> Settings (http://digitalnativestudios.com/textmeshpro/docs/settings/#font)
-         */
-
-        // <font=\"{_CaptionText.font.name}\">
-        // Example: <font="LiberationSans SDF">  
+            // <font=\"{_CaptionText.font.name}\">
+            // Example: <font="LiberationSans SDF">  
+        }
     }
 }
