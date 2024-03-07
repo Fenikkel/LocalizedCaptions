@@ -7,7 +7,10 @@ using UnityEngine.Localization.Components;
     Everyone has to be [Serializable] to work. Also every script has to be an independent script (.cs)
  */
 
-[AddComponentMenu("Localization/Asset/Localize TextAsset Event")]
-[Serializable] // It's mandatory
-public class LocalizeTextAssetEvent : LocalizedAssetEvent<TextAsset, LocalizedTextAsset, UnityEventTextAsset> { }
+namespace LocalizedAudio
+{
+    [AddComponentMenu("Localization/Asset/Localize TextAsset Event")]
+    [Serializable] // It's mandatory
+    public class LocalizeTextAssetEvent : LocalizedAssetEvent<TextAsset, LocalizedTextAsset, UnityEventTextAsset> { }
 
+}

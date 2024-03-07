@@ -5,7 +5,7 @@ using UnityEngine;
  * Remember to copy the Rect Transform and TextMeshPro position values
  */
 
-namespace CaptionsFileParser
+namespace LocalizedAudio
 {
     [RequireComponent(typeof(TextMeshProUGUI))]
     public class CaptionsHighlight : MonoBehaviour

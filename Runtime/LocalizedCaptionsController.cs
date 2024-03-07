@@ -7,6 +7,7 @@ using UnityEngine.Events;
 using UnityEngine.Localization.Settings;
 using UnityEngine.Localization.Tables;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using CaptionsFileParser;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -19,7 +20,7 @@ using UnityEditor;
  * TextConfig: On TMP UI, disable Wrapping to make the text correctly visible.
  */
 
-namespace CaptionsFileParser
+namespace LocalizedAudio
 {
     [RequireComponent(typeof(TextMeshProUGUI), typeof(LocalizeTextAssetEvent))]
     public class LocalizedCaptionsController : MonoBehaviour
