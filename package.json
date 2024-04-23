@@ -49,7 +49,8 @@
   ],
   "dependencies": {
     "com.unity.textmeshpro": "2.1.6",
-    "com.unity.localization": "1.4.5"
+    "com.unity.localization": "1.4.5",
+    "com.fenikkel.captions-file-parser": "1.0.0"
   }
   
 }
