@@ -34,7 +34,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "//": "In dependencies, you say the minimum version that the package can work with, if it's avaliable a higher version, it will use that one",
+  
   "type": "library",
   "documentationUrl": "https://github.com/Fenikkel/LocalizedCaptions/tree/main/Documentation%7E",
   "changelogUrl": "https://github.com/Fenikkel/LocalizedCaptions/blob/main/CHANGELOG.md",
@@ -47,10 +47,14 @@
         "path": "Samples~/Demo"
     }
   ],
+
+  "//comment1": "In dependencies, you say the minimum version that the package can work with, if it's avaliable a higher version, it will use that one",
+
+  "//comment2": "Asset Store packages won't work in depencencies -> \"com.fenikkel.captions-file-parser\": \"1.0.0\"",
+
   "dependencies": {
     "com.unity.textmeshpro": "2.1.6",
-    "com.unity.localization": "1.4.5",
-    "com.fenikkel.captions-file-parser": "1.0.0"
+    "com.unity.localization": "1.4.5" 
   }
   
 }
