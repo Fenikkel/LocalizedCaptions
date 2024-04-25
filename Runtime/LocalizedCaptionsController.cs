@@ -20,7 +20,7 @@ using UnityEditor;
  * TextConfig: On TMP UI, disable Wrapping to make the text correctly visible.
  */
 
-namespace LocalizedAudio
+namespace LocalizedCaptions
 {
     [RequireComponent(typeof(TextMeshProUGUI), typeof(LocalizeTextAssetEvent))]
     public class LocalizedCaptionsController : MonoBehaviour
