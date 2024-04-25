@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
 using UnityEngine.Localization.Tables;
-using LocalizedAudio;
+using LocalizedCaptions;
 
 namespace Fenikkel.LocalizedCaptions.Example
 {
